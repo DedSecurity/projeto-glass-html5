@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<title>Teste JavaScript</title>
+		<meta charset="UTF-8"/>
+		<script>
+			//state = 0 -> apagada
+			//state = 1 -> acesa
+			//state = -1 -> Quebrada
+			
+			var state = 0;
+			
+			
+			function acendeLampada(){
+				document.getElementById("luz").src ="_imagens/lampada-acesa.jpg";
+				state = 1;
+			}
+			function apagaLampada(){
+				document.getElementById("luz").src ="_imagens/lampada-apagada.jpg"
+				state = 0;
+			}
+			function quebraLampada(){
+				document.getElementById("luz").src ="_imagens/lampada-quebrada.jpg";
+				state = -1;
+			}
+			
+			function controlLampada(acao){
+				if (state != -1){
+					if (acao == 0){
+						apagaLampada();					
+					}else if(acao == 1){
+						acendeLampada();
+					}else if (acao == -1){
+						quebraLampada();
+					}
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>Acenda a lâmpada</h1>
+		<img src ="_imagens/lampada-apagada.jpg" id = "luz" onmousemove = "controlLampada(1)" onmouseout="controlLampada(0)" onclick ="controlLampada(-1)" />
+		
+		
+	</body>
+	</html>
